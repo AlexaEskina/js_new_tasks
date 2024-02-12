@@ -1,37 +1,46 @@
-'number' + 3 + 3 // number33
+'number' + 3 + 3 // number33 -> Since the first operand is a string, all operands are treated as strings
 
-null + 3 // 3
+null + 3 // 3 -> in arithmetic operations, null = 0, 0 + 3 = 3
 
-5 && "qwerty"// qwerty
+5 && "qwerty"// qwerty -> returns the value of 2nd operand, because 1st operand can't be converted to false
 
-+'40' + +'2' + "hillel"; // 42hillel - but should be without ";"
++'40' + +'2' + "hillel"; // 42hillel -> string convert to number, that's why 40 + 2 = 42 and concatinate with a string 
 
-'10' - 5 === 6; // false
+'10' - 5 === 6; // false ->  string '10' convert to number, then 10 - 5 = 5. 5 strictly compares with 6, and 5 is not equal to 6 
 
-true + false // 1
+true + false // 1 -> true = 1 and false = 0, 0 + 1= 1
 
-'4px' - 3 // NaN
+'4px' - 3 // NaN -> JS tries to convert the string to a number, but '4px' can't be converted
 
-'4' - 3 // 1
+'4' - 3 // 1 -> JS tries to convert string to a number, that's why '4' = 4 and then subtract 3 
 
-'6' + 3 ** 0; // 61
+'6' + 3 ** 0; // 61 -> 3 ^ 0 = 1 and then 6 is concatinated with 1
 
-12 / '6' // 2
+12 / '6' // 2 -> JS tries to convert string to a number, that's why '6' = 6, and then simple division is performed 
 
-'10' + (5 === 6); // 10false
+'10' + (5 === 6); // 10false -> When use + with a string and a boolean expression, the boolean expression is converted to a string 
 
-null == '' // false
+null == '' // false -> null and empty string are not equal when using == operator
 
-3 ** (9 / 3); // 27
+3 ** (9 / 3); // 27 -> 3 ^ (9/3 = 3)= 27
 
-!!'false' == !!'true' // true
+!!'false' == !!'true' /* true -> when using !! and try to apply to string,!!'false' evaluates to true and !!'true' evaluates to true,
+and then true=true  
+*/
 
-0 || '0' && 1 // 1
+0 || '0' && 1 /* 1 -> || returns the 1st orepand if it's truthy, otherwise - the 2nd. && returns the 1st operand if it's falsy, otherwise
+- returns the 2nd. 0 is falsy, so || evaluates the next operand. '0' is truthy and && evaluates the next operand 
+*/
+(+null == false) < 1; /* false -> +null convert null to a number which is 0, then 0 == false compares 0 with false, which evaluates 
+to true. true < 1, where true is converted to 1. Finnaly 1 < 1 is false 
+*/
+false && true || true /* true -> false && true evaluates to false, false || true evaluates to true because the first operand is falsy, 
+and OR operator returns the 2nd operand which is truthy
+*/
 
-(+null == false) < 1; // false
-
-false && true || true // true
-
-false && (false || true); // false
-
-(+null == false) < 1 ** 5;// false
+false && (false || true); /* false -> false || true evaluates to true because OR operator returns the truthy operand, false && true 
+evaluates to false because the first operand is falsy 
+*/
+(+null == false) < 1 ** 5;/* false -> +null convert null to a number (0). 0 == false compares the number with the boolean value false, which evaluates 
+to true. 1**5 is 1. true < 1, where true is converted to 1. Finnaly 1 < 1 is false 
+*/
