@@ -32,3 +32,17 @@ function drawTriangle (height, symbol) {
        console.log (triangle);
 }
 drawTriangle(5,'*');
+
+//pow_function 
+
+function pow(x, n) {
+    let result = x;
+  
+    for (let i = 1; i < n; i++) {
+      result *= x;
+    }
+  
+    return result;
+  }
+let result = pow (4,5);
+console.log(result);
